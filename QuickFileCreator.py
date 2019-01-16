@@ -39,10 +39,10 @@ class QuickCreateFileCreatorBase(sublime_plugin.WindowCommand):
             settings = self.window.active_view().settings()
 
         if settings and settings.has('QuickFileCreator') and key in settings.get('QuickFileCreator'):
-            # Get project-specific setting
+
             results = settings.get('QuickFileCreator')[key]
         else:
-            # Get user-specific or default setting
+
             settings = sublime.load_settings('QuickFileCreator.sublime-settings')
             results = settings.get(key)
         return results
@@ -86,7 +86,6 @@ class QuickCreateFileCreatorBase(sublime_plugin.WindowCommand):
             try:
                 self.selected_dir = self.full_torelative_paths[self.selected_dir]
             except KeyError:
-                # selected dir is not in the map, is that even a problem ?
                 pass
             self.window.show_input_panel(self.INPUT_PANEL_CAPTION, '', self.file_name_input, None, None)
 
